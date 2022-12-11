@@ -6,19 +6,18 @@ on:
       # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   
-
-    
-  
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: suisei-cn/actions-download-file@v1.3.0
-        name: Download the file
+  wget:
+    runs-on: ubuntu-latest
+    steps:
+      - name: wget
+        uses: wei/wget@v1
         with:
-          url: "https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD"
-          target: data/
+          args: -O https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD
       - name: Commit results
         run: |
             git add -A
