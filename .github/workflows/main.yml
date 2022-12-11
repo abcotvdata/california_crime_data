@@ -6,16 +6,19 @@ on:
       # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   
+
+    
+  
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: wow-actions/download-upload@v1
+      - uses: suisei-cn/actions-download-file@v1.3.0
+        name: Download the file
         with:
-          url: https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD
-          dir: .
-          filename: crime.csv
+          url: "https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD"
+          target: main/
       - name: Commit results
         run: |
             git add -A
