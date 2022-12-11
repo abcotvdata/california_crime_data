@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: REST API with curl
+    - name: Get the file
       run: |
-        curl https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD
+        curl -0 data/crime.csv https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD
     - name: Commit results
       run: |
         git add -A
