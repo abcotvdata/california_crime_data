@@ -17,7 +17,7 @@ jobs:
           dir: .
           filename: crime.csv
       - name: Commit results
-          run: |
+        run: |
             git add -A
             git commit -m 'New crime data collected' || echo "No changes"
             git push origin || echo "No changes to commit"
