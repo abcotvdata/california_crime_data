@@ -18,7 +18,7 @@ jobs:
         name: Download the file
         with:
           url: "https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD"
-          target: main/
+          target: data/
       - name: Commit results
         run: |
             git add -A
