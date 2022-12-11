@@ -15,4 +15,4 @@ jobs:
         - uses: valitydev/action-download-file@v1
           with:
             url: https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD
-            target-path: .
+            target-path: main/crime.csv
