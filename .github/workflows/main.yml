@@ -5,19 +5,18 @@ on:
     - cron: '15 16,20 * * *'
       # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+  
 jobs:
-  deploy:
+  run:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v3
-
-        - uses: valitydev/action-download-file@v1
-          with:
-            url: https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD
-            target-path: main/crime.csv
-            
-        - name: Commit results
+      - uses: actions/checkout@v3
+      - uses: wow-actions/download-upload@v1
+        with:
+          url: https://data.lacity.org/api/views/2nrs-mtv8/rows.csv?accessType=DOWNLOAD
+          dir: .
+          filename: crime.csv
+      - name: Commit results
           run: |
             git add -A
             git commit -m 'New crime data collected' || echo "No changes"
